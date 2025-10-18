@@ -24,11 +24,20 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.con
 .media-card{display:grid;grid-template-columns:120px 1fr;gap:14px}.book-cover{background:linear-gradient(135deg,#e8ecff,#f9fbff);border:1px solid var(--border);border-radius:10px;aspect-ratio:3/4}
 .testimonial{max-width:760px;margin:0 auto;text-align:center}.testimonial blockquote{font-size:clamp(18px,2.6vw,26px);font-weight:700}.author{color:var(--muted);margin-top:6px}.dots{display:flex;gap:8px;justify-content:center;margin-top:12px}.dots button{width:8px;height:8px;border-radius:999px;border:0;background:#d7dcf0;cursor:pointer}.dots button[aria-selected="true"]{background:var(--brand)}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stack label{display:grid;gap:6px;margin:8px 0}.stack input,.stack textarea{border:1px solid var(--border);border-radius:10px;padding:10px 12px;font:inherit;width:100%}.muted{color:var(--muted)}.small{font-size:.85rem}.quiz label{display:flex;gap:8px;margin:8px 0}.quiz-result{margin-top:12px;padding:12px;border:1px dashed var(--border);border-radius:12px;min-height:40px}
-.lead-magnet{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.55)}.lead-dialog{background:#fff;border-radius:16px;padding:20px;max-width:620px;width:92%;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease}.lead-magnet[data-open="true"] .lead-dialog{opacity:1;transform:translateY(0)}.lead-head{display:flex;align-items:center;justify-content:space-between}.close{background:transparent;border:0;font-size:18px;cursor:pointer}
+/* Fixed modal styles - properly hide when not active */
+.book-modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;display:none;place-items:center}
+.book-modal.active{display:grid}
+.modal-dialog{background:#fff;border-radius:16px;padding:20px;max-width:720px;width:92%;max-height:80vh;overflow-y:auto;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease}
+.book-modal.active .modal-dialog{opacity:1;transform:translateY(0)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.close{background:transparent;border:0;font-size:18px;cursor:pointer;padding:5px}
+.modal-body{padding:16px 0}.modal-body h4{margin-top:20px;margin-bottom:8px;color:var(--brand)}.modal-body p{margin:8px 0}
 .page-hero{padding:64px 0;background:linear-gradient(135deg,var(--accent-start),var(--accent-end));border-bottom:1px solid var(--border);color:#fff;position:relative;overflow:hidden}.page-hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 70% 20%,rgba(255,255,255,.16),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,255,255,.10),transparent 60%);animation:drift 18s ease-in-out infinite alternate;transform:translate3d(0,var(--parallax,0px),0)}.page-hero .lead{color:#eef3ff}.narrow{max-width:800px}
 .reveal{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 .site-footer{border-top:1px solid var(--border);padding:24px 0 0;margin-top:40px;background:#fff}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:20px;padding:20px 0}.brand-footer{display:flex;gap:8px;align-items:center}.fineprint{padding:12px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}.subscribe{display:grid;grid-template-columns:1fr auto;gap:8px}.subscribe input{border:1px solid var(--border);border-radius:10px;padding:10px 12px}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.cards-3{grid-template-columns:1fr}.media-card{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.list-plain{list-style:none;padding:0;margin:0}
+.list-plain li{margin:5px 0}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.cards-3{grid-template-columns:1fr}.media-card{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
 </style></head>
 <body class="page-books">
 <header class="site-header" role="banner">
@@ -37,12 +46,12 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.con
     <nav class="site-nav" role="navigation" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <ul id="nav-menu">
-        <li><a href="index.html" >Home</a></li>
-        <li><a href="about.html" >About</a></li>
-        <li><a href="services.html" >Services</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="books.html" style="font-weight:700;">Books</a></li>
-        <li><a href="events.html" >Events</a></li>
-        <li><a href="contact.html" >Contact</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a class="btn btn-primary" href="contact.html#booking">Book Speaking</a></li>
       </ul>
     </nav>
@@ -51,37 +60,206 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.con
 <main id="main">
 <section class="page-hero reveal"><div class="container narrow"><h1>Books</h1><p class="lead">Practical frameworks you can use this week.</p></div></section>
 <section class="section reveal"><div class="container cards-3">
-<article class="card media-card" id="lever1"><div class="book-cover"></div><div class="media-card-body"><h3>Mindset Lever 1</h3><p>Subtitle copy that sets the promise.</p><div class="row"><a class="btn btn-primary" href="#">Buy</a><button class="btn btn-outline" onclick="document.querySelector('[data-modal]').removeAttribute('hidden')">Preview</button></div></div></article>
-<article class="card media-card" id="lever2"><div class="book-cover"></div><div class="media-card-body"><h3>Mindset Lever 2</h3><p>Subtitle copy that sets the promise.</p><div class="row"><a class="btn btn-primary" href="#">Buy</a><button class="btn btn-outline" onclick="document.querySelector('[data-modal]').removeAttribute('hidden')">Preview</button></div></div></article>
-<article class="card media-card" id="lever3"><div class="book-cover"></div><div class="media-card-body"><h3>Mindset Lever 3</h3><p>Subtitle copy that sets the promise.</p><div class="row"><a class="btn btn-primary" href="#">Buy</a><button class="btn btn-outline" onclick="document.querySelector('[data-modal]').removeAttribute('hidden')">Preview</button></div></div></article>
+<article class="card media-card" id="lever1">
+  <div class="book-cover"></div>
+  <div class="media-card-body">
+    <h3>The Trust Equation</h3>
+    <p>Build psychological safety and unlock team potential.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="#">Buy on Amazon</a>
+      <button class="btn btn-outline" data-preview="lever1">Preview</button>
+    </div>
+  </div>
+</article>
+<article class="card media-card" id="lever2">
+  <div class="book-cover"></div>
+  <div class="media-card-body">
+    <h3>Leading Through Clarity</h3>
+    <p>Cut through complexity to create aligned action.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="#">Buy on Amazon</a>
+      <button class="btn btn-outline" data-preview="lever2">Preview</button>
+    </div>
+  </div>
+</article>
+<article class="card media-card" id="lever3">
+  <div class="book-cover"></div>
+  <div class="media-card-body">
+    <h3>The Resilient Mindset</h3>
+    <p>Transform setbacks into strategic advantages.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="#">Buy on Amazon</a>
+      <button class="btn btn-outline" data-preview="lever3">Preview</button>
+    </div>
+  </div>
+</article>
 </div></section>
-<div class="lead-magnet" data-modal hidden><div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title"><div class="lead-head"><h3 id="preview-title">Book Preview</h3><button class="close" onclick="document.querySelector('[data-modal]').setAttribute('hidden','')" aria-label="Close">✕</button></div><div class="modal-body"><p>This is a short preview excerpt. Replace with real sample pages or a PDF embed.</p></div></div></div>
+
+<!-- Fixed modal with proper show/hide functionality -->
+<div class="book-modal" id="preview-modal">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+    <div class="modal-head">
+      <h3 id="preview-title">Book Preview</h3>
+      <button class="close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-content">
+      <p>Loading preview...</p>
+    </div>
+  </div>
+</div>
 </main>
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-grid">
     <div><div class="brand-footer"><strong>Empowering Your Mindset</strong></div><p>Tools, talks, and coaching to lead with clarity and trust.</p></div>
     <div><h4>Quick Links</h4><ul class="list-plain"><li><a href="services.html">Services</a></li><li><a href="books.html">Books</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h4>Subscribe</h4><form class="subscribe" data-enhance="true"><label class="sr-only" for="sub-email">Email</label><input id="sub-email" type="email" placeholder="you@company.com" required><button class="btn">Join</button><p class="small muted">No spam. Unsubscribe anytime.</p></form></div>
+    <div><h4>Subscribe</h4><form class="subscribe" data-enhance="true"><label class="sr-only" for="sub-email">Email</label><input id="sub-email" type="email" placeholder="you@company.com" required><button class="btn">Join</button></form><p class="small muted">No spam. Unsubscribe anytime.</p></div>
   </div>
   <div class="container fineprint"><small>© 2025 Dr. Andrew Brown. All rights reserved.</small></div>
 </footer>
-<script>(function(){
-  const toggle=document.querySelector('.nav-toggle'),menu=document.getElementById('nav-menu');
-  if(toggle&&menu){
-    toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
-    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(menu.classList.contains('open')){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');}}));
+<script>
+(function(){
+  // Mobile menu toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if(toggle && menu){
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if(menu.classList.contains('open')){
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    }));
   }
-  const leadWrap=document.querySelector('[data-lead]'); const opens=document.querySelectorAll('[data-open-lead]'); const closes=document.querySelectorAll('[data-close-lead]');
-  function openLead(){ if(!leadWrap) return; leadWrap.dataset.open="true"; leadWrap.removeAttribute('hidden'); }
-  function closeLead(){ if(!leadWrap) return; leadWrap.dataset.open="false"; leadWrap.setAttribute('hidden',''); }
-  opens.forEach(b=>b.addEventListener('click',openLead)); closes.forEach(b=>b.addEventListener('click',closeLead));
-  if(leadWrap){ leadWrap.addEventListener('click',e=>{ if(e.target===leadWrap) closeLead(); }); document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLead(); }); }
-  const counters=document.querySelectorAll('.counter'); const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const el=en.target,t=Number(el.getAttribute('data-target')),s=performance.now(),d=900; const tick=(x)=>{const p=Math.min(1,(x-s)/d); el.textContent=Math.floor(t*p).toLocaleString(); if(p<1) requestAnimationFrame(tick);}; requestAnimationFrame(tick); io.unobserve(el);}})},{threshold:.25}); counters.forEach(c=>io.observe(c));
-  const quotes=[{q:"Dr. Brown reframed how our leaders think.",a:"VP, Fortune 500 Retail"},{q:"Powerful, actionable, unforgettable.",a:"Conference Chair, LeadSummit"},{q:"Our teams deliver more with less stress.",a:"HR Director, Tech Scaleup"}];
-  const qEl=document.getElementById('testimonial-quote'), aEl=document.getElementById('testimonial-author'), dots=document.querySelectorAll('.dots button');
-  function render(i){ if(!qEl||!aEl||!dots.length) return; const it=quotes[i]; qEl.textContent=`“${it.q}”`; aEl.textContent=`— ${it.a}`; dots.forEach((d,di)=>d.setAttribute('aria-selected',String(di===i))); }
-  if(dots.length){ let idx=0; dots.forEach(d=>d.addEventListener('click',()=>{idx=Number(d.dataset.idx); render(idx);})); setInterval(()=>{idx=(idx+1)%quotes.length; render(idx);},3500); render(0); }
-  const reveals=document.querySelectorAll('.reveal'); const rio=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); rio.unobserve(en.target);} })},{threshold:.2}); reveals.forEach(el=>rio.observe(el));
-  function parallax(){ const sc=window.scrollY||window.pageYOffset; const px=Math.min(30, sc*0.08); document.documentElement.style.setProperty('--parallax', px+'px'); } window.addEventListener('scroll',parallax,{passive:true}); parallax();
-})();</script>
+  
+  // Book preview modal functionality
+  const modal = document.getElementById('preview-modal');
+  const modalTitle = document.getElementById('preview-title');
+  const modalContent = document.getElementById('modal-content');
+  const previewButtons = document.querySelectorAll('[data-preview]');
+  const closeBtn = modal?.querySelector('.close');
+  
+  // Sample preview content for each book
+  const previews = {
+    lever1: {
+      title: 'The Trust Equation - Preview',
+      content: `
+        <h4>Introduction: Why Trust Matters</h4>
+        <p>In today's rapidly changing business landscape, trust isn't just nice to have—it's the foundation of high-performing teams. Research shows that teams with high trust levels are 2.5x more likely to be high-performing revenue organizations.</p>
+        
+        <h4>Chapter 1: The Four Pillars of Trust</h4>
+        <p>Trust in organizations rests on four essential pillars: Credibility, Reliability, Intimacy, and Self-Orientation. When leaders understand and optimize these four elements, they create environments where innovation thrives and people do their best work.</p>
+        
+        <p><strong>Credibility</strong> goes beyond expertise—it's about demonstrating competence in ways that matter to your team...</p>
+        
+        <p><strong>Reliability</strong> is the consistency between words and actions over time...</p>
+      `
+    },
+    lever2: {
+      title: 'Leading Through Clarity - Preview',
+      content: `
+        <h4>Foreword: The Clarity Crisis</h4>
+        <p>We live in an age of information overload. The average knowledge worker receives 120 emails per day and attends 25 hours of meetings per week. Yet despite all this communication, teams are more confused than ever about priorities and direction.</p>
+        
+        <h4>Chapter 1: The Clarity Framework</h4>
+        <p>Clarity isn't about dumbing things down—it's about making the complex accessible. The Clarity Framework consists of three core elements: Purpose, Process, and Progress.</p>
+        
+        <p><strong>Purpose:</strong> Why we exist and what we're trying to achieve...</p>
+        
+        <p><strong>Process:</strong> How we work together to achieve our goals...</p>
+      `
+    },
+    lever3: {
+      title: 'The Resilient Mindset - Preview',
+      content: `
+        <h4>Introduction: Redefining Resilience</h4>
+        <p>Resilience isn't about bouncing back—it's about bouncing forward. True resilience transforms challenges into catalysts for growth, turning setbacks into strategic advantages.</p>
+        
+        <h4>Chapter 1: The Resilience Paradox</h4>
+        <p>The most resilient leaders aren't those who avoid failure—they're those who have developed a different relationship with it. They see failure not as an endpoint but as data, not as weakness but as growth.</p>
+        
+        <p><strong>The Growth Response:</strong> How to rewire your automatic reactions to setbacks...</p>
+        
+        <p><strong>Strategic Recovery:</strong> Using downtime as opportunity for innovation...</p>
+      `
+    }
+  };
+  
+  function openModal(bookId){
+    if(!modal) return;
+    
+    const preview = previews[bookId] || {
+      title: 'Book Preview',
+      content: '<p>Preview content is not available for this book yet. Check back soon!</p>'
+    };
+    
+    modalTitle.textContent = preview.title;
+    modalContent.innerHTML = preview.content;
+    modal.classList.add('active');
+    
+    // Focus the close button for accessibility
+    setTimeout(() => {
+      closeBtn?.focus();
+    }, 100);
+  }
+  
+  function closeModal(){
+    if(!modal) return;
+    modal.classList.remove('active');
+  }
+  
+  // Attach event listeners
+  previewButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const bookId = btn.getAttribute('data-preview');
+      openModal(bookId);
+    });
+  });
+  
+  if(closeBtn){
+    closeBtn.addEventListener('click', closeModal);
+  }
+  
+  // Close on backdrop click
+  if(modal){
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal){
+        closeModal();
+      }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal.classList.contains('active')){
+        closeModal();
+      }
+    });
+  }
+  
+  // Reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const revealIO = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealIO.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.2});
+  
+  reveals.forEach(el => revealIO.observe(el));
+  
+  // Parallax effect
+  function parallax(){
+    const scrollY = window.scrollY || window.pageYOffset;
+    const px = Math.min(30, scrollY * 0.08);
+    document.documentElement.style.setProperty('--parallax', px + 'px');
+  }
+  
+  window.addEventListener('scroll', parallax, {passive: true});
+  parallax();
+})();
+</script>
 </body></html>
