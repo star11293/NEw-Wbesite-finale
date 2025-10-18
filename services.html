@@ -4,45 +4,119 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Services • Empowering Your Mindset</title>
-<style>
-:root{
-  --bg:#ffffff;
-  --text:#0b1220;
-  --muted:#5b657a;
-  --brand:#0b3b8c;
-  --brand-2:#4f46e5;
-  --border:#e6e9f2;
-  --shadow:0 10px 25px rgba(12,36,99,.08);
-  --accent-start:#0b3b8c;
-  --accent-end:#4f46e5;
-}
 
-/* Per-page accent overrides */
+<style>
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg:#ffffff; --text:#0b1220; --muted:#5b657a;
+  --brand:#0b3b8c; --brand-2:#4f46e5;
+  --border:#e6e9f2; --shadow:0 10px 25px rgba(12,36,99,.08);
+  --accent-start:#0b3b8c; --accent-end:#4f46e5;
+}
 .page-about   { --accent-start:#0f9fb3; --accent-end:#1e5bd7; }
 .page-services{ --accent-start:#d19c00; --accent-end:#f59e0b; }
 .page-books   { --accent-start:#6d28d9; --accent-end:#1d4ed8; }
-.page-events  { --accent-start:#0ea5e9; --accent-end:#22c55e; } /* ✅ fixed */
+.page-events  { --accent-start:#0ea5e9; --accent-end:#22c55e; } /* ✅ valid colors */
 
-/* Base */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
+/* ---------- Base ---------- */
+*{ box-sizing:border-box }
+html,body{ margin:0; padding:0 }
 body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text); background: var(--bg); line-height: 1.6;
+}
+img, video{ max-width:100%; height:auto; display:block }
+
+.container{ width:min(1100px, 92%); margin-inline:auto }
+.narrow{ width:min(850px, 92%) }
+
+/* ---------- Header & Nav ---------- */
+.site-header{
+  position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--border);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
+.brand{ text-decoration:none; color:var(--brand); font-weight:700; font-size:1.1rem }
+.brand-text{ background:linear-gradient(90deg,var(--accent-start),var(--accent-end));
+  -webkit-background-clip:text; background-clip:text; color:transparent }
+
+.site-nav ul{ display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center }
+.site-nav a{ text-decoration:none; color:var(--text) }
+.btn{ display:inline-block; padding:.6rem 1rem; border-radius:.6rem }
+.btn-primary{ color:#fff; background:linear-gradient(90deg,var(--accent-start),var(--accent-end)) }
+
+/* Mobile nav */
+.nav-toggle{
+  display:none; width:36px; height:28px; border:0; background:transparent; padding:0; cursor:pointer;
+}
+.nav-toggle .bar{ display:block; height:3px; margin:5px 0; background:var(--text); border-radius:2px }
+
+@media (max-width: 900px){
+  .nav-toggle{ display:block }
+  .site-nav ul{
+    position:fixed; inset:64px 0 auto 0; background:#fff; border-top:1px solid var(--border);
+    flex-direction:column; padding:14px 18px; transform:translateY(-16px); opacity:0; pointer-events:none; transition:.25s ease;
+  }
+  .site-nav ul.open{ transform:translateY(0); opacity:1; pointer-events:auto }
 }
 
-/* [Previous styles remain the same] — keep anything else you had here */
-</style>
+/* ---------- Hero ---------- */
+.page-hero{
+  padding:64px 0 28px;
+  background:
+    radial-gradient(1200px 1200px at 10% -10%, color-mix(in oklab, var(--accent-end) 12%, transparent) 0%, transparent 55%),
+    radial-gradient(900px 900px at 110% -30%, color-mix(in oklab, var(--accent-start) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, #fff 0%, #fff 100%);
+  border-bottom:1px solid var(--border);
+}
+.page-hero h1{ font-size:clamp(2rem, 4vw, 3rem); margin:0 0 .5rem }
+.page-hero .lead{ color:var(--muted); font-size:1.05rem; margin:0 }
 
+/* ---------- Events Section ---------- */
+.section{ padding:48px 0 }
+.event-content{ max-width:900px; margin:0 auto }
+.video-container{ position:relative; padding-bottom:56.25%; height:0; margin-bottom:2rem }
+.video-container video{ position:absolute; inset:0; width:100%; height:100%; border-radius:12px }
+
+.event-info{
+  display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2rem;
+}
+@media (max-width: 768px){ .event-info{ grid-template-columns:1fr } }
+
+.event-image{ width:100%; border-radius:12px; box-shadow: var(--shadow) }
+.event-description{ font-size:1.05rem; color:var(--text) }
+
+/* ---------- Form (Wix-like classes minimal styling) ---------- */
+.wixui-form{
+  background:#fff; padding:1.5rem; border-radius:12px; box-shadow:var(--shadow); border:1px solid var(--border);
+}
+.wixui-text-input, .wixui-text-box{ margin-bottom:1rem }
+.wixui-text-input__label, .wixui-text-box__label{ display:block; margin-bottom:.4rem; font-weight:600 }
+.wixui-text-input__input, .wixui-text-box__input{
+  width:100%; padding:.75rem .85rem; border:1px solid var(--border); border-radius:8px; font-size:1rem;
+}
+.wixui-radio-button-group{ margin:1rem 0 }
+.wixui-checkbox{ display:block; margin:1rem 0 }
+.wixui-button{
+  background:var(--brand); color:#fff; padding:1rem 1.25rem; border:0; border-radius:10px; font-size:1rem; cursor:pointer; transition:background .2s ease;
+}
+.wixui-button:hover{ background:var(--brand-2) }
+
+/* ---------- Utilities ---------- */
+.reveal{ opacity:1; transform:none } /* placeholder if you had scroll-reveal */
+</style>
 </head>
+
 <body class="page-services">
 <header class="site-header" role="banner">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Empowering Your Mindset home"><span class="brand-text">Empowering Your Mindset</span></a>
+    <a class="brand" href="index.html" aria-label="Empowering Your Mindset home">
+      <span class="brand-text">Empowering Your Mindset</span>
+    </a>
+
     <nav class="site-nav" role="navigation" aria-label="Primary">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
       <ul id="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -64,22 +138,20 @@ body{
     </div>
   </section>
 
-  <!-- New Events Section -->
   <section class="section reveal" id="events">
     <div class="container narrow">
       <div class="event-content">
         <div class="video-container">
-          <video width="100%" controls>
+          <video controls>
             <source src="https://video.wixstatic.com/video/a2df09_47af24c84d694ffd8c11db4d60b65189/480p/mp4/file.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
-        
+
         <div class="event-info">
-          <img src="https://static.wixstatic.com/media/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg/v1/fill/w_356,h_237,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg" 
-               alt="Event Planning with Dr. Andrew Brown" 
-               class="event-image">
-          
+          <img src="https://static.wixstatic.com/media/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg/v1/fill/w_356,h_237,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg"
+               alt="Event Planning with Dr. Andrew Brown" class="event-image">
+
           <div class="event-description">
             <p>Events are not easy but working with Dr. Andrew Brown is. Our aim is to help you create an enriching experience at your event. Whether you know exactly which speaker to request or you are searching for ideas - we can help you.</p>
             <p>We look forward to responding to your inquiry from the form below, and one of our team members will be in touch within one business day.</p>
@@ -87,79 +159,85 @@ body{
         </div>
 
         <!-- Event Inquiry Form -->
-        <form id="comp-kjiw8l1h" class="JVi7i2 comp-kjiw8l1h wixui-form">
+        <form id="comp-kjiw8l1h" class="JVi7i2 comp-kjiw8l1h wixui-form" action="#" method="post" novalidate>
           <div data-mesh-id="comp-kjiw8l1hinlineContent" data-testid="inline-content">
             <div data-mesh-id="comp-kjiw8l1hinlineContent-gridContainer" data-testid="mesh-container-content">
-              <!-- Name Input -->
+
+              <!-- Name -->
               <div id="comp-kjiw8l2v" class="MpKiNN comp-kjiw8l2v wixui-text-input qzvPmW lPl_oN">
                 <label for="input_comp-kjiw8l2v" class="wPeA6j wixui-text-input__label">NAME</label>
                 <div class="pUnTVX">
-                  <input name="name" id="input_comp-kjiw8l2v" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" placeholder="  " required="" aria-invalid="false" maxlength="100" autocomplete="off" value="">
+                  <input name="name" id="input_comp-kjiw8l2v" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" required maxlength="100" autocomplete="name">
                 </div>
               </div>
 
-              <!-- Email Input -->
+              <!-- Email -->
               <div id="comp-kjiw8l3c" class="MpKiNN comp-kjiw8l3c wixui-text-input qzvPmW lPl_oN">
                 <label for="input_comp-kjiw8l3c" class="wPeA6j wixui-text-input__label">EMAIL</label>
                 <div class="pUnTVX">
-                  <input name="email" id="input_comp-kjiw8l3c" class="KvoMHf has-custom-focus wixui-text-input__input" type="email" placeholder="  " required="" aria-invalid="false" pattern="^.+@.+\.[a-zA-Z]{2,63}$" maxlength="250" autocomplete="off" value="">
+                  <input name="email" id="input_comp-kjiw8l3c" class="KvoMHf has-custom-focus wixui-text-input__input" type="email" required pattern="^.+@.+\.[a-zA-Z]{2,63}$" maxlength="250" autocomplete="email">
                 </div>
               </div>
 
-              <!-- Phone Input -->
+              <!-- Phone -->
               <div id="comp-kjiw8l3t" class="MpKiNN comp-kjiw8l3t wixui-text-input qzvPmW lPl_oN LyB02C">
                 <label for="input_comp-kjiw8l3t" class="wPeA6j wixui-text-input__label">PHONE</label>
                 <div class="pUnTVX">
-                  <input name="phone" id="input_comp-kjiw8l3t" class="KvoMHf has-custom-focus wixui-text-input__input" type="tel" placeholder="  " required="" aria-invalid="true" maxlength="50" autocomplete="off" value="">
+                  <input name="phone" id="input_comp-kjiw8l3t" class="KvoMHf has-custom-focus wixui-text-input__input" type="tel" required maxlength="50" autocomplete="tel">
                 </div>
               </div>
 
-              <!-- Organization Input -->
+              <!-- Organization -->
               <div id="comp-kjiw8l4a" class="MpKiNN comp-kjiw8l4a wixui-text-input qzvPmW lPl_oN">
                 <label for="input_comp-kjiw8l4a" class="wPeA6j wixui-text-input__label">ORGANIZATION</label>
                 <div class="pUnTVX">
-                  <input name="organization" id="input_comp-kjiw8l4a" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" placeholder="  " required="" aria-invalid="false" maxlength="250" autocomplete="off" value="">
+                  <input name="organization" id="input_comp-kjiw8l4a" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" required maxlength="250" autocomplete="organization">
                 </div>
               </div>
 
-              <!-- Date & Location Input -->
+              <!-- Date & Location -->
               <div id="comp-kjiw8l4q" class="MpKiNN comp-kjiw8l4q wixui-text-input qzvPmW LyB02C">
-                <label for="input_comp-kjiw8l4q" class="wPeA6j wixui-text-input__label">DATE & LOCATION OF EVENT</label>
+                <label for="input_comp-kjiw8l4q" class="wPeA6j wixui-text-input__label">DATE &amp; LOCATION OF EVENT</label>
                 <div class="pUnTVX">
-                  <input name="date-& location of event" id="input_comp-kjiw8l4q" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" placeholder="  " aria-invalid="false" maxlength="100" autocomplete="off" aria-required="false" value="">
+                  <input name="event_details" id="input_comp-kjiw8l4q" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" maxlength="100" autocomplete="off">
                 </div>
               </div>
 
-              <!-- Speaker/Topic Input -->
+              <!-- Speaker/Topic -->
               <div id="comp-kjiwhzgv" class="MpKiNN comp-kjiwhzgv wixui-text-input qzvPmW lPl_oN">
                 <label for="input_comp-kjiwhzgv" class="wPeA6j wixui-text-input__label">SPEAKER(S) OR TOPIC OF INTEREST(S)</label>
                 <div class="pUnTVX">
-                  <input name="speaker(s)-or topic of interest(s)" id="input_comp-kjiwhzgv" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" placeholder="" required="" aria-invalid="false" autocomplete="off" value="">
+                  <input name="topics" id="input_comp-kjiwhzgv" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" required autocomplete="off">
                 </div>
               </div>
 
-              <!-- Budget Radio Buttons -->
+              <!-- Budget (simple example option set) -->
               <div id="comp-kjix9jey" class="iEQ0uT comp-kjix9jey wixui-radio-button-group">
-                <fieldset role="radiogroup" aria-invalid="false">
-                  <legend class="KxA7Xb">
-                    <div data-testid="groupLabel" class="kuumTh wixui-radio-button-group__label">BUDGET FOR SPEAKER HONORARIUM:</div>
-                  </legend>
+                <fieldset role="radiogroup">
+                  <legend class="KxA7Xb"><div data-testid="groupLabel" class="kuumTh wixui-radio-button-group__label">BUDGET FOR SPEAKER HONORARIUM:</div></legend>
                   <div data-testid="radioGroup" class="b33LKJ">
                     <label class="W30iAf wixui-radio-button-group__option">
-                      <input type="radio" class="T277if" name="comp-kjix9jey" value="Traveling expenses only">
-                      <div class="GfSSwF wixui-radio-button-group__input">
-                        <div class="MnMHAd wixui-radio-button-group__input-selection"></div>
-                      </div>
-                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">Traveling expenses only</div>
+                      <input type="radio" class="T277if" name="honorarium" value="Travel expenses only">
+                      <div class="GfSSwF wixui-radio-button-group__input"><div class="MnMHAd wixui-radio-button-group__input-selection"></div></div>
+                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">Travel expenses only</div>
                     </label>
-                    <!-- [Additional radio options] -->
+                    <label class="W30iAf wixui-radio-button-group__option">
+                      <input type="radio" class="T277if" name="honorarium" value="$1,000–$5,000">
+                      <div class="GfSSwF wixui-radio-button-group__input"><div class="MnMHAd wixui-radio-button-group__input-selection"></div></div>
+                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">$1,000–$5,000</div>
+                    </label>
+                    <label class="W30iAf wixui-radio-button-group__option">
+                      <input type="radio" class="T277if" name="honorarium" value="$5,000+">
+                      <div class="GfSSwF wixui-radio-button-group__input"><div class="MnMHAd wixui-radio-button-group__input-selection"></div></div>
+                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">$5,000+</div>
+                    </label>
                   </div>
                 </fieldset>
               </div>
 
-              <!-- Production Company Checkbox -->
+              <!-- Production company -->
               <label id="comp-kjixsx0t" data-testid="checkbox" class="wSrZTo comp-kjixsx0t wixui-checkbox">
-                <input data-testid="input" type="checkbox" class="cCdhN7" required="" aria-invalid="false" value="checked">
+                <input data-testid="input" type="checkbox" class="cCdhN7" name="is_production_company" value="yes">
                 <span class="LPwNQx wixui-checkbox__input"></span>
                 <div data-testid="checkmark" class="WY4uQX" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.40011 5.68606" class="wixui-checkbox__icon">
@@ -168,147 +246,61 @@ body{
                 </div>
                 <div class="EBYClk wixui-checkbox__label">
                   <span data-testid="text" class="eW1tpy">Check HERE if you represent a production company</span>
-                  <div data-testid="linkElement" class="H38Q8v">
-                    <span data-testid="linkLabel" class="aoYkzT"></span>
-                  </div>
                 </div>
               </label>
 
-              <!-- Event Details Textarea -->
+              <!-- More details -->
               <div id="comp-kjixvzbk" class="snt4Te comp-kjixvzbk wixui-text-box oKe0Po pOExcs">
                 <label for="textarea_comp-kjixvzbk" class="PSkPrR wixui-text-box__label">MORE DETAILS ABOUT YOUR EVENT:</label>
-                <textarea id="textarea_comp-kjixvzbk" class="rEindN has-custom-focus wixui-text-box__input" placeholder="" aria-required="false" aria-invalid="false"></textarea>
+                <textarea id="textarea_comp-kjixvzbk" class="rEindN has-custom-focus wixui-text-box__input" rows="5"></textarea>
               </div>
 
-              <!-- Submit Button -->
-              <div class="comp-kjiw8l55 FubTgk" id="comp-kjiw8l55" aria-disabled="false">
-                <button aria-disabled="false" aria-label="Submit" data-testid="buttonElement" class="uDW_Qe wixui-button PlZyDq">
+              <!-- Submit -->
+              <div class="comp-kjiw8l55 FubTgk" id="comp-kjiw8l55">
+                <button type="submit" aria-label="Submit" data-testid="buttonElement" class="uDW_Qe wixui-button PlZyDq">
                   <span class="l7_2fn wixui-button__label">Submit</span>
                 </button>
               </div>
 
-              <!-- Success Message -->
-              <div id="comp-kjiw8l5m" class="Z_l5lU MMl86N zQ9jDz qvSjx3 Vq6kJx comp-kjiw8l5m wixui-rich-text" data-testid="richTextElement">
+              <!-- Success text (placeholder) -->
+              <div id="comp-kjiw8l5m" class="Z_l5lU MMl86N zQ9jDz qvSjx3 Vq6kJx comp-kjiw8l5m wixui-rich-text" data-testid="richTextElement" aria-live="polite" style="display:none;">
                 <p class="font_8 wixui-rich-text__text" style="text-align:right; font-size:16px;">
-                  <span style="font-family:futura-lt-w01-light,sans-serif;" class="wixui-rich-text__text">
-                    <span style="color:#05C8A1;" class="wixui-rich-text__text">Thanks for submitting!</span>
-                  </span>
+                  <span style="font-family:Arial, sans-serif; color:#05C8A1;">Thanks for submitting!</span>
                 </p>
               </div>
+
             </div>
           </div>
         </form>
+
       </div>
     </div>
   </section>
-
-  <!-- [Previous sections remain the same] -->
 </main>
 
 <footer class="site-footer" role="contentinfo">
-  <!-- [Footer content remains the same] -->
+  <!-- your footer -->
 </footer>
 
 <script>
-// [Previous JavaScript remains the same]
+/* Minimal JS to open/close mobile nav */
+const toggle = document.querySelector('.nav-toggle');
+const menu = document.getElementById('nav-menu');
+if (toggle && menu){
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+
+/* Optional: fake form success message */
+const form = document.getElementById('comp-kjiw8l1h');
+if (form){
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('comp-kjiw8l5m').style.display = 'block';
+  });
+}
 </script>
-
-<!-- Add new styles for the events section -->
-<style>
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  margin-bottom: 2rem;
-}
-
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-}
-
-.event-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.event-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.event-image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-.event-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .event-info {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Form styles */
-.wixui-form {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-}
-
-.wixui-text-input, .wixui-text-box {
-  margin-bottom: 1.5rem;
-}
-
-.wixui-text-input__label, .wixui-text-box__label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.wixui-text-input__input, .wixui-text-box__input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.wixui-radio-button-group {
-  margin: 1.5rem 0;
-}
-
-.wixui-checkbox {
-  display: block;
-  margin: 1.5rem 0;
-}
-
-.wixui-button {
-  background: var(--brand);
-  color: #fff;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.wixui-button:hover {
-  background: var(--brand-2);
-}
-</style>
 </body>
 </html>
