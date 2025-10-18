@@ -5,11 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Services • Empowering Your Mindset</title>
 <style>
-:root{--bg:#ffffff;--text:#0b1220;--muted:#5b657a;--brand:#0b3b8c;--brand-2:#4f46e5;--border:#e6e9f2;--shadow:0 10px 25px rgba(12,36,99,.08);--accent-start:#0b3b8c;--accent-end:#4f46e5}
-.page-about{--accent-start:#0f9fb3;--accent-end:#1e5bd7}.page-services{--accent-start:#d19c00;--accent-end:#f59e0b}.page-books{--accent-start:#6d28d9;--accent-end:#1d4ed8}.page-events{--accent-start:#[...]
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-/* [Previous styles remain the same] */
+:root{
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#5b657a;
+  --brand:#0b3b8c;
+  --brand-2:#4f46e5;
+  --border:#e6e9f2;
+  --shadow:0 10px 25px rgba(12,36,99,.08);
+  --accent-start:#0b3b8c;
+  --accent-end:#4f46e5;
+}
+
+/* Per-page accent overrides */
+.page-about   { --accent-start:#0f9fb3; --accent-end:#1e5bd7; }
+.page-services{ --accent-start:#d19c00; --accent-end:#f59e0b; }
+.page-books   { --accent-start:#6d28d9; --accent-end:#1d4ed8; }
+.page-events  { --accent-start:#0ea5e9; --accent-end:#22c55e; } /* ✅ fixed */
+
+/* Base */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* [Previous styles remain the same] — keep anything else you had here */
 </style>
+
 </head>
 <body class="page-services">
 <header class="site-header" role="banner">
