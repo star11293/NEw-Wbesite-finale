@@ -83,4 +83,4 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.con
   const reveals=document.querySelectorAll('.reveal'); const rio=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); rio.unobserve(en.target);} })},{threshold:.2}); reveals.forEach(el=>rio.observe(el));
   function parallax(){ const sc=window.scrollY||window.pageYOffset; const px=Math.min(30, sc*0.08); document.documentElement.style.setProperty('--parallax', px+'px'); } window.addEventListener('scroll',parallax,{passive:true}); parallax();
 })();</script>
-</body></html>
+</body></html
