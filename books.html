@@ -396,83 +396,143 @@ a:hover{text-decoration:underline}
   <section class="section">
     <div class="container">
       <div class="filter-section">
-        <h3>Browse by Format</h3>
+        <h3>Browse by Category</h3>
         <div class="filter-options">
-          <button class="filter-btn active" data-filter="all">All Books</button>
-          <button class="filter-btn" data-filter="hardcover">Hardcover</button>
-          <button class="filter-btn" data-filter="paperback">Paperback</button>
-          <button class="filter-btn" data-filter="ebook">E-Book</button>
+          <button class="filter-btn active" data-filter="all">All Products</button>
+          <button class="filter-btn" data-filter="books">Books</button>
+          <button class="filter-btn" data-filter="apparel">Apparel</button>
         </div>
       </div>
 
       <div class="products-grid" id="products-grid">
         <!-- Product 1 -->
-        <div class="product-card" data-category="hardcover paperback ebook">
+        <div class="product-card" data-category="books">
           <div class="product-image">
-            <span class="badge">Bestseller</span>
-            <img src="https://static.wixstatic.com/media/a2df09_d23b580b44034ff096a71e2e45ffd044~mv2.png/v1/fill/w_368,h_487,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Your%20Mind%20Isnt%20Evil%20Its%20Just%20not%20Tra.png" alt="Your Mind Isn't Evil">
+            <span class="badge">Book</span>
+            <img src="https://static.wixstatic.com/media/a2df09_8e7f5a4b3c2d1e0f9a8b7c6d5e4f3a2b~mv2.jpg" alt="The Struggle Is Real">
           </div>
           <div class="product-info">
-            <h3 class="product-title">Your Mind Isn't Evil, It's Just Not Trained</h3>
-            <p class="product-description">Learn to transform your mind positively and create the world you desire. A practical guide to mindset transformation.</p>
-            <div class="product-price">
-              $24.99
-              <span class="original">$29.99</span>
-            </div>
+            <h3 class="product-title">The Struggle Is Real</h3>
+            <p class="product-description">Navigate life's challenges with clarity and purpose. Discover practical strategies to transform struggle into strength.</p>
+            <div class="product-price">$15.99</div>
             <div class="product-actions">
-              <button class="btn btn-primary" onclick="addToCart('Your Mind Isn\'t Evil', 24.99)">Add to Cart</button>
-              <a href="https://www.amazon.com/YOUR-MIND-ISNT-EVIL-TRAINED/dp/B0CBNBVKJC" class="btn btn-secondary" target="_blank">Buy on Amazon</a>
+              <button class="btn btn-primary" onclick="addToCart('The Struggle Is Real', 15.99)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/dr-andrew-brown-the-struggle-is-real" class="btn btn-secondary">View Details</a>
             </div>
           </div>
         </div>
 
         <!-- Product 2 -->
-        <div class="product-card" data-category="paperback ebook">
+        <div class="product-card" data-category="books">
           <div class="product-image">
-            <img src="https://static.wixstatic.com/media/a2df09_d3aed9b374954fd3b7754e7d6f0c93e1~mv2.png/v1/fill/w_368,h_487,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Broken%20But%20Not%20In%20Pieces.png" alt="Broken But Not In Pieces">
+            <span class="badge">Book</span>
+            <img src="https://static.wixstatic.com/media/a2df09_d3aed9b374954fd3b7754e7d6f0c93e1~mv2.png" alt="Broken But Not In Pieces">
           </div>
           <div class="product-info">
             <h3 class="product-title">Broken But Not In Pieces</h3>
-            <p class="product-description">Transform your setbacks into comebacks. A powerful journey of resilience, healing, and personal growth.</p>
-            <div class="product-price">$19.99</div>
+            <p class="product-description">Transform setbacks into comebacks. A powerful journey of resilience and healing that proves you're stronger than you think.</p>
+            <div class="product-price">$15.99</div>
             <div class="product-actions">
-              <button class="btn btn-primary" onclick="addToCart('Broken But Not In Pieces', 19.99)">Add to Cart</button>
-              <a href="https://www.amazon.com/Broken-Not-Pieces-Andrew-Brown/dp/1958729132" class="btn btn-secondary" target="_blank">Buy on Amazon</a>
+              <button class="btn btn-primary" onclick="addToCart('Broken But Not In Pieces', 15.99)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/broken-but-not-in-pieces" class="btn btn-secondary">View Details</a>
             </div>
           </div>
         </div>
 
         <!-- Product 3 -->
-        <div class="product-card" data-category="hardcover paperback">
+        <div class="product-card" data-category="books">
           <div class="product-image">
-            <span class="badge">New Release</span>
-            <img src="https://static.wixstatic.com/media/a2df09_a7a5e3e1a4a44e8a9e3c3f4d6e7f8a9b~mv2.png/v1/fill/w_368,h_487,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Hijack.png" alt="Hijack! The Psychology">
+            <span class="badge">Book</span>
+            <img src="https://static.wixstatic.com/media/a2df09_a7a5e3e1a4a44e8a9e3c3f4d6e7f8a9b~mv2.png" alt="Hijack: The Psychology">
           </div>
           <div class="product-info">
-            <h3 class="product-title">Hijack! The Psychology of Hijacking Your Mind</h3>
-            <p class="product-description">Take control of your thoughts and break free from mental limitations. Master the art of mindset hijacking.</p>
-            <div class="product-price">$27.99</div>
+            <h3 class="product-title">Hijack: The Psychology of Hijacking Your Mind</h3>
+            <p class="product-description">Take control of your thoughts and break free from mental limitations. Master the psychology of mindset transformation.</p>
+            <div class="product-price">$15.00</div>
             <div class="product-actions">
-              <button class="btn btn-primary" onclick="addToCart('Hijack! The Psychology', 27.99)">Add to Cart</button>
-              <a href="https://www.amazon.com/s?k=hijack+andrew+brown" class="btn btn-secondary" target="_blank">Buy on Amazon</a>
+              <button class="btn btn-primary" onclick="addToCart('Hijack: The Psychology', 15.00)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/hijack-the-psychology-of-hijacking-your-mind" class="btn btn-secondary">View Details</a>
             </div>
           </div>
         </div>
 
-        <!-- Product 4 - Bundle -->
-        <div class="product-card" data-category="ebook">
+        <!-- Product 4 -->
+        <div class="product-card" data-category="books">
           <div class="product-image">
-            <span class="badge">Bundle Deal</span>
+            <span class="badge">Book</span>
+            <img src="https://static.wixstatic.com/media/a2df09_d23b580b44034ff096a71e2e45ffd044~mv2.png" alt="Your Mind Is Not Evil">
           </div>
           <div class="product-info">
-            <h3 class="product-title">Complete Mindset Collection</h3>
-            <p class="product-description">Get all three books in digital format. Save 30% with this exclusive bundle offer!</p>
-            <div class="product-price">
-              $49.99
-              <span class="original">$72.97</span>
-            </div>
+            <h3 class="product-title">Your Mind Is Not Evil, Just Not Trained</h3>
+            <p class="product-description">Learn to transform your mind positively and create the life you desire. Essential guidance for building psychological wellness.</p>
+            <div class="product-price">$15.00</div>
             <div class="product-actions">
-              <button class="btn btn-primary" onclick="addToCart('Complete Collection Bundle', 49.99)">Add to Cart</button>
+              <button class="btn btn-primary" onclick="addToCart('Your Mind Is Not Evil', 15.00)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/your-mind-is-not-evil-addicts-and-those-who-love-them" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-category="apparel">
+          <div class="product-image">
+            <span class="badge">Apparel</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mindset Tee (Coaching 03)</h3>
+            <p class="product-description">Wear your commitment to growth. Premium quality tee with inspiring mindset coaching message.</p>
+            <div class="product-price">$10.00</div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Mindset Tee (Coaching 03)', 10.00)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/coaching03" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-category="apparel">
+          <div class="product-image">
+            <span class="badge">Apparel</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mindset Tee (Coaching 02)</h3>
+            <p class="product-description">Express your journey of transformation. Comfortable, stylish tee designed for mindset champions.</p>
+            <div class="product-price">$10.00</div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Mindset Tee (Coaching 02)', 10.00)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/coaching02" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card" data-category="apparel">
+          <div class="product-image">
+            <span class="badge">Apparel</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Greatness Tee 02</h3>
+            <p class="product-description">Embody greatness every day. High-quality apparel that reminds you of your unlimited potential.</p>
+            <div class="product-price">$10.00</div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Greatness Tee 02', 10.00)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/greatness02" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card" data-category="apparel">
+          <div class="product-image">
+            <span class="badge">Apparel</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Greatness Tee 12</h3>
+            <p class="product-description">Celebrate your pursuit of excellence. Premium tee that inspires greatness in yourself and others.</p>
+            <div class="product-price">$10.00</div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Greatness Tee 12', 10.00)">Add to Cart</button>
+              <a href="https://www.empoweringyourmindset.com/product-page/greatness12" class="btn btn-secondary">View Details</a>
             </div>
           </div>
         </div>
