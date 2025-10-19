@@ -4,115 +4,264 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Services • Empowering Your Mindset</title>
-
 <style>
-/* ---------- Theme tokens ---------- */
 :root{
-  --bg:#ffffff; --text:#0b1220; --muted:#5b657a;
-  --brand:#0b3b8c; --brand-2:#4f46e5;
-  --border:#e6e9f2; --shadow:0 10px 25px rgba(12,36,99,.08);
-  --accent-start:#0b3b8c; --accent-end:#4f46e5;
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#5b657a;
+  --brand:#8B1538;
+  --brand-2:#a01844;
+  --border:#e6e9f2;
+  --shadow:0 10px 25px rgba(139,21,56,.12);
+  --accent-start:#8B1538;
+  --accent-end:#a01844;
 }
-.page-about   { --accent-start:#0f9fb3; --accent-end:#1e5bd7; }
-.page-services{ --accent-start:#d19c00; --accent-end:#f59e0b; }
-.page-books   { --accent-start:#6d28d9; --accent-end:#1d4ed8; }
-.page-events  { --accent-start:#0ea5e9; --accent-end:#22c55e; } /* ✅ valid colors */
 
-/* ---------- Base ---------- */
-*{ box-sizing:border-box }
-html,body{ margin:0; padding:0 }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text); background: var(--bg); line-height: 1.6;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
 }
-img, video{ max-width:100%; height:auto; display:block }
 
-.container{ width:min(1100px, 92%); margin-inline:auto }
-.narrow{ width:min(850px, 92%) }
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1120px;margin-inline:auto;padding:0 20px}
 
-/* ---------- Header & Nav ---------- */
 .site-header{
-  position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--border);
-}
-.header-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
-.brand{ text-decoration:none; color:var(--brand); font-weight:700; font-size:1.1rem }
-.brand-text{ background:linear-gradient(90deg,var(--accent-start),var(--accent-end));
-  -webkit-background-clip:text; background-clip:text; color:transparent }
-
-.site-nav ul{ display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center }
-.site-nav a{ text-decoration:none; color:var(--text) }
-.btn{ display:inline-block; padding:.6rem 1rem; border-radius:.6rem }
-.btn-primary{ color:#fff; background:linear-gradient(90deg,var(--accent-start),var(--accent-end)) }
-
-/* Mobile nav */
-.nav-toggle{
-  display:none; width:36px; height:28px; border:0; background:transparent; padding:0; cursor:pointer;
-}
-.nav-toggle .bar{ display:block; height:3px; margin:5px 0; background:var(--text); border-radius:2px }
-
-@media (max-width: 900px){
-  .nav-toggle{ display:block }
-  .site-nav ul{
-    position:fixed; inset:64px 0 auto 0; background:#fff; border-top:1px solid var(--border);
-    flex-direction:column; padding:14px 18px; transform:translateY(-16px); opacity:0; pointer-events:none; transition:.25s ease;
-  }
-  .site-nav ul.open{ transform:translateY(0); opacity:1; pointer-events:auto }
-}
-
-/* ---------- Hero ---------- */
-.page-hero{
-  padding:64px 0 28px;
-  background:
-    radial-gradient(1200px 1200px at 10% -10%, color-mix(in oklab, var(--accent-end) 12%, transparent) 0%, transparent 55%),
-    radial-gradient(900px 900px at 110% -30%, color-mix(in oklab, var(--accent-start) 16%, transparent) 0%, transparent 60%),
-    linear-gradient(180deg, #fff 0%, #fff 100%);
+  position:sticky;
+  top:0;
+  backdrop-filter:saturate(160%) blur(8px);
   border-bottom:1px solid var(--border);
+  z-index:50;
+  background:rgba(255,255,255,.85);
 }
-.page-hero h1{ font-size:clamp(2rem, 4vw, 3rem); margin:0 0 .5rem }
-.page-hero .lead{ color:var(--muted); font-size:1.05rem; margin:0 }
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--text)}
+.brand-text{
+  font-weight:900;
+  background:linear-gradient(90deg,var(--accent-start),var(--accent-end));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-/* ---------- Events Section ---------- */
-.section{ padding:48px 0 }
-.event-content{ max-width:900px; margin:0 auto }
-.video-container{ position:relative; padding-bottom:56.25%; height:0; margin-bottom:2rem }
-.video-container video{ position:absolute; inset:0; width:100%; height:100%; border-radius:12px }
+.site-nav ul{display:flex;align-items:center;gap:12px;list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:8px 12px;border-radius:10px;transition:all 0.2s}
+.site-nav a:hover{background:#fff0f3;text-decoration:none;color:var(--brand)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;line-height:0}
+.nav-toggle .bar{display:block;width:24px;height:2px;background:#111;margin:5px 0;border-radius:2px}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid var(--border);
+  background:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .08s ease,background .15s,box-shadow .15s;
+  text-decoration:none;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px rgba(139,21,56,.15)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff;
+  border-color:transparent;
+}
+
+.page-hero{
+  padding:64px 0;
+  background:linear-gradient(135deg,var(--accent-start),var(--accent-end));
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  border-bottom-left-radius:32px;
+  border-bottom-right-radius:32px;
+}
+.page-hero::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:radial-gradient(40% 40% at 70% 20%,rgba(255,255,255,.18),transparent 60%),
+             radial-gradient(30% 30% at 10% 80%,rgba(255,255,255,.12),transparent 60%);
+  animation:drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift{
+  0%{opacity:.9;transform:translate3d(-2%,0,0)}
+  100%{opacity:.9;transform:translate3d(2%,0,0)}
+}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}
+.page-hero .lead{color:#ffe8ed;font-size:1.05rem;margin:0}
+
+.section{padding:60px 0}
+.video-container{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  margin-bottom:2rem;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.video-container video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
 
 .event-info{
-  display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  margin-bottom:3rem;
 }
-@media (max-width: 768px){ .event-info{ grid-template-columns:1fr } }
+.event-image{
+  width:100%;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.event-description{
+  font-size:1.05rem;
+  color:var(--text);
+  line-height:1.7;
+}
 
-.event-image{ width:100%; border-radius:12px; box-shadow: var(--shadow) }
-.event-description{ font-size:1.05rem; color:var(--text) }
+.booking-form{
+  background:#fff;
+  padding:2rem;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.booking-form h3{
+  color:var(--brand);
+  margin-top:0;
+}
+.form-group{
+  margin-bottom:1.5rem;
+}
+.form-group label{
+  display:block;
+  margin-bottom:0.5rem;
+  font-weight:600;
+  color:var(--text);
+  font-size:0.9rem;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:0.75rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-family:inherit;
+  font-size:1rem;
+  transition:border-color 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--brand);
+}
+.form-group textarea{
+  resize:vertical;
+  min-height:100px;
+}
 
-/* ---------- Form (Wix-like classes minimal styling) ---------- */
-.wixui-form{
-  background:#fff; padding:1.5rem; border-radius:12px; box-shadow:var(--shadow); border:1px solid var(--border);
+.radio-group{
+  margin:1rem 0;
 }
-.wixui-text-input, .wixui-text-box{ margin-bottom:1rem }
-.wixui-text-input__label, .wixui-text-box__label{ display:block; margin-bottom:.4rem; font-weight:600 }
-.wixui-text-input__input, .wixui-text-box__input{
-  width:100%; padding:.75rem .85rem; border:1px solid var(--border); border-radius:8px; font-size:1rem;
+.radio-option{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  margin:0.75rem 0;
+  cursor:pointer;
 }
-.wixui-radio-button-group{ margin:1rem 0 }
-.wixui-checkbox{ display:block; margin:1rem 0 }
-.wixui-button{
-  background:var(--brand); color:#fff; padding:1rem 1.25rem; border:0; border-radius:10px; font-size:1rem; cursor:pointer; transition:background .2s ease;
+.radio-option input[type="radio"]{
+  width:auto;
+  cursor:pointer;
 }
-.wixui-button:hover{ background:var(--brand-2) }
 
-/* ---------- Utilities ---------- */
-.reveal{ opacity:1; transform:none } /* placeholder if you had scroll-reveal */
+.checkbox-group{
+  margin:1rem 0;
+}
+.checkbox-option{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  cursor:pointer;
+}
+.checkbox-option input[type="checkbox"]{
+  width:auto;
+  cursor:pointer;
+}
+
+.submit-btn{
+  width:100%;
+  padding:1rem;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.submit-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(139,21,56,.2);
+}
+
+.success-message{
+  display:none;
+  background:#d4edda;
+  border:1px solid #c3e6cb;
+  color:#155724;
+  padding:1rem;
+  border-radius:8px;
+  margin-top:1rem;
+  text-align:center;
+}
+.success-message.show{
+  display:block;
+}
+
+@media (max-width:900px){
+  .site-nav ul{
+    position:absolute;
+    right:16px;
+    top:60px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:10px;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    width:260px;
+  }
+  .site-nav ul.open{display:flex}
+  .nav-toggle{display:inline-flex}
+  .event-info{grid-template-columns:1fr}
+}
 </style>
 </head>
-
-<body class="page-services">
+<body>
 <header class="site-header" role="banner">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Empowering Your Mindset home">
       <span class="brand-text">Empowering Your Mindset</span>
     </a>
-
     <nav class="site-nav" role="navigation" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -124,183 +273,154 @@ img, video{ max-width:100%; height:auto; display:block }
         <li><a href="books.html">Books</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a class="btn btn-primary" href="contact.html#booking">Book Speaking</a></li>
+        <li><a class="btn btn-primary" href="#booking">Book Speaking</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main id="main">
-  <section class="page-hero reveal">
-    <div class="container narrow">
+<main>
+  <section class="page-hero">
+    <div class="container">
       <h1>Services</h1>
       <p class="lead">Coaching, workshops, and keynotes designed for measurable outcomes.</p>
     </div>
   </section>
 
-  <section class="section reveal" id="events">
-    <div class="container narrow">
-      <div class="event-content">
-        <div class="video-container">
-          <video controls>
-            <source src="https://video.wixstatic.com/video/a2df09_47af24c84d694ffd8c11db4d60b65189/480p/mp4/file.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+  <section class="section" id="booking">
+    <div class="container">
+      <div class="video-container">
+        <video controls>
+          <source src="https://video.wixstatic.com/video/a2df09_47af24c84d694ffd8c11db4d60b65189/480p/mp4/file.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="event-info">
+        <img src="https://static.wixstatic.com/media/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg/v1/fill/w_356,h_237,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg"
+             alt="Event Planning with Dr. Andrew Brown" class="event-image">
+
+        <div class="event-description">
+          <h2 style="color:var(--brand);margin-top:0">Book Dr. Andrew Brown for Your Event</h2>
+          <p>Events are not easy but working with Dr. Andrew Brown is. Our aim is to help you create an enriching experience at your event. Whether you know exactly which speaker to request or you are searching for ideas - we can help you.</p>
+          <p>We look forward to responding to your inquiry from the form below, and one of our team members will be in touch within one business day.</p>
         </div>
+      </div>
 
-        <div class="event-info">
-          <img src="https://static.wixstatic.com/media/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg/v1/fill/w_356,h_237,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a81d4_0296c7e9d07645948a68e6541a000400~mv2.jpg"
-               alt="Event Planning with Dr. Andrew Brown" class="event-image">
-
-          <div class="event-description">
-            <p>Events are not easy but working with Dr. Andrew Brown is. Our aim is to help you create an enriching experience at your event. Whether you know exactly which speaker to request or you are searching for ideas - we can help you.</p>
-            <p>We look forward to responding to your inquiry from the form below, and one of our team members will be in touch within one business day.</p>
+      <div class="booking-form">
+        <h3>Event Inquiry Form</h3>
+        <form id="booking-form">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
           </div>
-        </div>
 
-        <!-- Event Inquiry Form -->
-        <form id="comp-kjiw8l1h" class="JVi7i2 comp-kjiw8l1h wixui-form" action="#" method="post" novalidate>
-          <div data-mesh-id="comp-kjiw8l1hinlineContent" data-testid="inline-content">
-            <div data-mesh-id="comp-kjiw8l1hinlineContent-gridContainer" data-testid="mesh-container-content">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
 
-              <!-- Name -->
-              <div id="comp-kjiw8l2v" class="MpKiNN comp-kjiw8l2v wixui-text-input qzvPmW lPl_oN">
-                <label for="input_comp-kjiw8l2v" class="wPeA6j wixui-text-input__label">NAME</label>
-                <div class="pUnTVX">
-                  <input name="name" id="input_comp-kjiw8l2v" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" required maxlength="100" autocomplete="name">
-                </div>
-              </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
 
-              <!-- Email -->
-              <div id="comp-kjiw8l3c" class="MpKiNN comp-kjiw8l3c wixui-text-input qzvPmW lPl_oN">
-                <label for="input_comp-kjiw8l3c" class="wPeA6j wixui-text-input__label">EMAIL</label>
-                <div class="pUnTVX">
-                  <input name="email" id="input_comp-kjiw8l3c" class="KvoMHf has-custom-focus wixui-text-input__input" type="email" required pattern="^.+@.+\.[a-zA-Z]{2,63}$" maxlength="250" autocomplete="email">
-                </div>
-              </div>
+          <div class="form-group">
+            <label for="organization">Organization *</label>
+            <input type="text" id="organization" name="organization" required>
+          </div>
 
-              <!-- Phone -->
-              <div id="comp-kjiw8l3t" class="MpKiNN comp-kjiw8l3t wixui-text-input qzvPmW lPl_oN LyB02C">
-                <label for="input_comp-kjiw8l3t" class="wPeA6j wixui-text-input__label">PHONE</label>
-                <div class="pUnTVX">
-                  <input name="phone" id="input_comp-kjiw8l3t" class="KvoMHf has-custom-focus wixui-text-input__input" type="tel" required maxlength="50" autocomplete="tel">
-                </div>
-              </div>
+          <div class="form-group">
+            <label for="event_details">Date & Location of Event</label>
+            <input type="text" id="event_details" name="event_details" placeholder="e.g., March 15, 2025 - New York, NY">
+          </div>
 
-              <!-- Organization -->
-              <div id="comp-kjiw8l4a" class="MpKiNN comp-kjiw8l4a wixui-text-input qzvPmW lPl_oN">
-                <label for="input_comp-kjiw8l4a" class="wPeA6j wixui-text-input__label">ORGANIZATION</label>
-                <div class="pUnTVX">
-                  <input name="organization" id="input_comp-kjiw8l4a" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" required maxlength="250" autocomplete="organization">
-                </div>
-              </div>
+          <div class="form-group">
+            <label for="topics">Speaker(s) or Topic of Interest(s) *</label>
+            <input type="text" id="topics" name="topics" required placeholder="e.g., Leadership Development, Mindset Coaching">
+          </div>
 
-              <!-- Date & Location -->
-              <div id="comp-kjiw8l4q" class="MpKiNN comp-kjiw8l4q wixui-text-input qzvPmW LyB02C">
-                <label for="input_comp-kjiw8l4q" class="wPeA6j wixui-text-input__label">DATE &amp; LOCATION OF EVENT</label>
-                <div class="pUnTVX">
-                  <input name="event_details" id="input_comp-kjiw8l4q" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" maxlength="100" autocomplete="off">
-                </div>
-              </div>
-
-              <!-- Speaker/Topic -->
-              <div id="comp-kjiwhzgv" class="MpKiNN comp-kjiwhzgv wixui-text-input qzvPmW lPl_oN">
-                <label for="input_comp-kjiwhzgv" class="wPeA6j wixui-text-input__label">SPEAKER(S) OR TOPIC OF INTEREST(S)</label>
-                <div class="pUnTVX">
-                  <input name="topics" id="input_comp-kjiwhzgv" class="KvoMHf has-custom-focus wixui-text-input__input" type="text" required autocomplete="off">
-                </div>
-              </div>
-
-              <!-- Budget (simple example option set) -->
-              <div id="comp-kjix9jey" class="iEQ0uT comp-kjix9jey wixui-radio-button-group">
-                <fieldset role="radiogroup">
-                  <legend class="KxA7Xb"><div data-testid="groupLabel" class="kuumTh wixui-radio-button-group__label">BUDGET FOR SPEAKER HONORARIUM:</div></legend>
-                  <div data-testid="radioGroup" class="b33LKJ">
-                    <label class="W30iAf wixui-radio-button-group__option">
-                      <input type="radio" class="T277if" name="honorarium" value="Travel expenses only">
-                      <div class="GfSSwF wixui-radio-button-group__input"><div class="MnMHAd wixui-radio-button-group__input-selection"></div></div>
-                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">Travel expenses only</div>
-                    </label>
-                    <label class="W30iAf wixui-radio-button-group__option">
-                      <input type="radio" class="T277if" name="honorarium" value="$1,000–$5,000">
-                      <div class="GfSSwF wixui-radio-button-group__input"><div class="MnMHAd wixui-radio-button-group__input-selection"></div></div>
-                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">$1,000–$5,000</div>
-                    </label>
-                    <label class="W30iAf wixui-radio-button-group__option">
-                      <input type="radio" class="T277if" name="honorarium" value="$5,000+">
-                      <div class="GfSSwF wixui-radio-button-group__input"><div class="MnMHAd wixui-radio-button-group__input-selection"></div></div>
-                      <div class="rH4zdN wixui-radio-button-group__option-label" data-testid="label">$5,000+</div>
-                    </label>
-                  </div>
-                </fieldset>
-              </div>
-
-              <!-- Production company -->
-              <label id="comp-kjixsx0t" data-testid="checkbox" class="wSrZTo comp-kjixsx0t wixui-checkbox">
-                <input data-testid="input" type="checkbox" class="cCdhN7" name="is_production_company" value="yes">
-                <span class="LPwNQx wixui-checkbox__input"></span>
-                <div data-testid="checkmark" class="WY4uQX" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.40011 5.68606" class="wixui-checkbox__icon">
-                    <path d="M2.55016,5.68606c-.01709,0-.03369-.001-.05078-.002a.7.7,0,0,1-.51758-.28955L.1317,2.82326a.7.7,0,1,1,1.13672-.81738l1.36133,1.8916L6.19713.2134A.69995.69995,0,0,1,7.203,1.187L3.05309,5.47268A.7.7,0,0,1,2.55016,5.68606Z"></path>
-                  </svg>
-                </div>
-                <div class="EBYClk wixui-checkbox__label">
-                  <span data-testid="text" class="eW1tpy">Check HERE if you represent a production company</span>
-                </div>
+          <div class="form-group">
+            <label>Budget for Speaker Honorarium:</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="honorarium" value="travel" required>
+                <span>Travel expenses only</span>
               </label>
-
-              <!-- More details -->
-              <div id="comp-kjixvzbk" class="snt4Te comp-kjixvzbk wixui-text-box oKe0Po pOExcs">
-                <label for="textarea_comp-kjixvzbk" class="PSkPrR wixui-text-box__label">MORE DETAILS ABOUT YOUR EVENT:</label>
-                <textarea id="textarea_comp-kjixvzbk" class="rEindN has-custom-focus wixui-text-box__input" rows="5"></textarea>
-              </div>
-
-              <!-- Submit -->
-              <div class="comp-kjiw8l55 FubTgk" id="comp-kjiw8l55">
-                <button type="submit" aria-label="Submit" data-testid="buttonElement" class="uDW_Qe wixui-button PlZyDq">
-                  <span class="l7_2fn wixui-button__label">Submit</span>
-                </button>
-              </div>
-
-              <!-- Success text (placeholder) -->
-              <div id="comp-kjiw8l5m" class="Z_l5lU MMl86N zQ9jDz qvSjx3 Vq6kJx comp-kjiw8l5m wixui-rich-text" data-testid="richTextElement" aria-live="polite" style="display:none;">
-                <p class="font_8 wixui-rich-text__text" style="text-align:right; font-size:16px;">
-                  <span style="font-family:Arial, sans-serif; color:#05C8A1;">Thanks for submitting!</span>
-                </p>
-              </div>
-
+              <label class="radio-option">
+                <input type="radio" name="honorarium" value="1k-5k">
+                <span>$1,000–$5,000</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="honorarium" value="5k+">
+                <span>$5,000+</span>
+              </label>
             </div>
           </div>
-        </form>
 
+          <div class="form-group">
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="is_production_company" value="yes">
+                <span>Check HERE if you represent a production company</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="details">More Details About Your Event:</label>
+            <textarea id="details" name="details" rows="5" placeholder="Tell us about your event, audience size, goals, and any other relevant information..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Inquiry</button>
+          
+          <div class="success-message" id="success-message">
+            <strong>Thanks for submitting!</strong> We'll be in touch within one business day.
+          </div>
+        </form>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
-  <!-- your footer -->
+<footer style="border-top:1px solid var(--border);padding:2rem 0;margin-top:3rem">
+  <div class="container">
+    <p style="text-align:center;color:var(--muted);margin:0">
+      © 2025 Dr. Andrew Brown. All rights reserved.
+    </p>
+  </div>
 </footer>
 
 <script>
-/* Minimal JS to open/close mobile nav */
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.getElementById('nav-menu');
-if (toggle && menu){
+if(toggle && menu){
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 }
 
-/* Optional: fake form success message */
-const form = document.getElementById('comp-kjiw8l1h');
-if (form){
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    document.getElementById('comp-kjiw8l5m').style.display = 'block';
-  });
-}
+const form = document.getElementById('booking-form');
+const successMessage = document.getElementById('success-message');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // Here you would normally send the form data to your server
+  // For now, we'll just show the success message
+  
+  successMessage.classList.add('show');
+  form.reset();
+  
+  // Scroll to success message
+  successMessage.scrollIntoView({behavior: 'smooth', block: 'center'});
+  
+  // Hide success message after 5 seconds
+  setTimeout(() => {
+    successMessage.classList.remove('show');
+  }, 5000);
+});
 </script>
 </body>
 </html>
