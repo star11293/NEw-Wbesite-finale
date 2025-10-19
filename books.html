@@ -1,50 +1,372 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Books • Empowering Your Mindset</title>
-<style>:root{--bg:#ffffff;--text:#0b1220;--muted:#5b657a;--brand:#0b3b8c;--brand-2:#4f46e5;--border:#e6e9f2;--shadow:0 10px 25px rgba(12,36,99,.08);--accent-start:#0b3b8c;--accent-end:#4f46e5}
-.page-about{--accent-start:#0f9fb3;--accent-end:#1e5bd7}.page-services{--accent-start:#d19c00;--accent-end:#f59e0b}.page-books{--accent-start:#6d28d9;--accent-end:#1d4ed8}.page-events{--accent-start:#22a2ff;--accent-end:#06b6d4}.page-contact{--accent-start:#10b981;--accent-end:#2563eb}
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.container{max-width:1120px;margin-inline:auto;padding:0 20px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.site-header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--border);z-index:50;background:rgba(255,255,255,.85)}.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--text)}.brand-text{font-weight:900}.site-nav ul{display:flex;align-items:center;gap:12px;list-style:none;margin:0;padding:0}
-.site-nav a{display:inline-block;padding:8px 12px;border-radius:10px}.site-nav a:hover{background:#f5f7ff;text-decoration:none}.nav-toggle{display:none;background:none;border:0;cursor:pointer;line-height:0}
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#5b657a;
+  --brand:#8B1538;
+  --brand-2:#a01844;
+  --border:#e6e9f2;
+  --shadow:0 10px 25px rgba(139,21,56,.12);
+  --accent-start:#8B1538;
+  --accent-end:#a01844;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1120px;margin-inline:auto;padding:0 20px}
+
+.site-header{
+  position:sticky;
+  top:0;
+  backdrop-filter:saturate(160%) blur(8px);
+  border-bottom:1px solid var(--border);
+  z-index:50;
+  background:rgba(255,255,255,.85);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--text)}
+.brand-text{
+  font-weight:900;
+  background:linear-gradient(90deg,var(--accent-start),var(--accent-end));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.site-nav ul{display:flex;align-items:center;gap:12px;list-style:none;margin:0;padding:0}
+.site-nav a{display:inline-block;padding:8px 12px;border-radius:10px;transition:all 0.2s}
+.site-nav a:hover{background:#fff0f3;text-decoration:none;color:var(--brand)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;line-height:0}
 .nav-toggle .bar{display:block;width:24px;height:2px;background:#111;margin:5px 0;border-radius:2px}
-@media (max-width:900px){.site-nav ul{position:absolute;right:16px;top:60px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:10px;display:none;flex-direction:column;align-items:flex-start;width:260px}.site-nav ul.open{display:flex}.nav-toggle{display:inline-flex}}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);background:#fff;padding:10px 14px;border-radius:12px;cursor:pointer;transition:transform .08s ease,background .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px rgba(12,36,99,.10)}.btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}.btn-invert{background:#fff;color:var(--brand);border-color:transparent}.btn-ghost{background:transparent;border-color:transparent}.btn-outline{background:transparent;border-color:var(--border)}
-.btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.hero{color:#fff;padding:64px 0;border-bottom-left-radius:32px;border-bottom-right-radius:32px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--accent-start),var(--accent-end))}
-.hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 70% 20%,rgba(255,255,255,.18),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,255,255,.12),transparent 60%);animation:drift 18s ease-in-out infinite alternate;transform:translate3d(0,var(--parallax,0px),0)}
-@keyframes drift{0%{opacity:.9;transform:translate3d(-2%,var(--parallax,0px),0)}100%{opacity:.9;transform:translate3d(2%,var(--parallax,0px),0)}}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}.hero h1{line-height:1.1;margin:8px 0 6px;font-size:clamp(32px,5vw,56px)}.hero p{max-width:56ch;color:#eef3ff}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:14px;border-radius:16px;text-align:center}.counter{font-weight:900;font-size:clamp(28px,4vw,42px)}
-.hero-media{min-height:260px;border-radius:20px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.15);display:grid;place-items:center}.play{display:inline-flex;gap:8px;align-items:center;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);padding:10px 14px;border-radius:12px}
-.section{padding:60px 0}.section.alt{background:#f9fbff}.section-head{margin-bottom:20px;display:flex;align-items:center;gap:10px}.section h2{font-size:clamp(22px,3.2vw,34px);margin:0 0 6px}
-.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px;transition:transform .18s ease,box-shadow .18s}.card:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(12,36,99,.14)}
-.media-card{display:grid;grid-template-columns:120px 1fr;gap:14px}.book-cover{background:linear-gradient(135deg,#e8ecff,#f9fbff);border:1px solid var(--border);border-radius:10px;aspect-ratio:3/4}
-.testimonial{max-width:760px;margin:0 auto;text-align:center}.testimonial blockquote{font-size:clamp(18px,2.6vw,26px);font-weight:700}.author{color:var(--muted);margin-top:6px}.dots{display:flex;gap:8px;justify-content:center;margin-top:12px}.dots button{width:8px;height:8px;border-radius:999px;border:0;background:#d7dcf0;cursor:pointer}.dots button[aria-selected="true"]{background:var(--brand)}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stack label{display:grid;gap:6px;margin:8px 0}.stack input,.stack textarea{border:1px solid var(--border);border-radius:10px;padding:10px 12px;font:inherit;width:100%}.muted{color:var(--muted)}.small{font-size:.85rem}.quiz label{display:flex;gap:8px;margin:8px 0}.quiz-result{margin-top:12px;padding:12px;border:1px dashed var(--border);border-radius:12px;min-height:40px}
-/* Fixed modal styles - properly hide when not active */
-.book-modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;display:none;place-items:center}
-.book-modal.active{display:grid}
-.modal-dialog{background:#fff;border-radius:16px;padding:20px;max-width:720px;width:92%;max-height:80vh;overflow-y:auto;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease}
-.book-modal.active .modal-dialog{opacity:1;transform:translateY(0)}
-.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.close{background:transparent;border:0;font-size:18px;cursor:pointer;padding:5px}
-.modal-body{padding:16px 0}.modal-body h4{margin-top:20px;margin-bottom:8px;color:var(--brand)}.modal-body p{margin:8px 0}
-.page-hero{padding:64px 0;background:linear-gradient(135deg,var(--accent-start),var(--accent-end));border-bottom:1px solid var(--border);color:#fff;position:relative;overflow:hidden}.page-hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 70% 20%,rgba(255,255,255,.16),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,255,255,.10),transparent 60%);animation:drift 18s ease-in-out infinite alternate;transform:translate3d(0,var(--parallax,0px),0)}.page-hero .lead{color:#eef3ff}.narrow{max-width:800px}
-.reveal{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}.reveal.visible{opacity:1;transform:translateY(0)}
-.site-footer{border-top:1px solid var(--border);padding:24px 0 0;margin-top:40px;background:#fff}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:20px;padding:20px 0}.brand-footer{display:flex;gap:8px;align-items:center}.fineprint{padding:12px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}.subscribe{display:grid;grid-template-columns:1fr auto;gap:8px}.subscribe input{border:1px solid var(--border);border-radius:10px;padding:10px 12px}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-.list-plain{list-style:none;padding:0;margin:0}
-.list-plain li{margin:5px 0}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.cards-3{grid-template-columns:1fr}.media-card{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
-</style></head>
-<body class="page-books">
+
+.cart-icon{
+  position:relative;
+  background:var(--brand);
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:18px;
+}
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:var(--brand-2);
+  color:#fff;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:700;
+}
+
+@media (max-width:900px){
+  .site-nav ul{
+    position:absolute;
+    right:16px;
+    top:60px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:10px;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    width:260px;
+  }
+  .site-nav ul.open{display:flex}
+  .nav-toggle{display:inline-flex}
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid var(--border);
+  background:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .08s ease,background .15s,box-shadow .15s;
+  text-decoration:none;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px rgba(139,21,56,.15)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff;
+  border-color:transparent;
+}
+.btn-secondary{
+  background:#fff;
+  color:var(--brand);
+  border-color:var(--brand);
+}
+
+.page-hero{
+  padding:64px 0;
+  background:linear-gradient(135deg,var(--accent-start),var(--accent-end));
+  color:#fff;
+  border-bottom-left-radius:32px;
+  border-bottom-right-radius:32px;
+}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}
+.page-hero .lead{color:#ffe8ed;font-size:1.05rem;margin:0}
+
+.section{padding:60px 0}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:2rem;
+  margin-top:2rem;
+}
+
+.product-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(139,21,56,.18);
+}
+
+.product-image{
+  width:100%;
+  aspect-ratio:3/4;
+  background:linear-gradient(135deg,#ffe8ed,#fff9fa);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:var(--brand);
+  color:#fff;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:0.75rem;
+  font-weight:600;
+}
+
+.product-info{padding:1.5rem}
+.product-title{
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--text);
+  margin:0 0 0.5rem;
+}
+.product-description{
+  color:var(--muted);
+  font-size:0.9rem;
+  margin:0 0 1rem;
+  line-height:1.5;
+}
+.product-price{
+  font-size:1.75rem;
+  font-weight:700;
+  color:var(--brand);
+  margin:0 0 1rem;
+}
+.product-price .original{
+  font-size:1.25rem;
+  color:var(--muted);
+  text-decoration:line-through;
+  margin-left:0.5rem;
+}
+
+.product-actions{
+  display:flex;
+  gap:0.5rem;
+}
+.product-actions .btn{
+  flex:1;
+}
+
+.cart-sidebar{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:400px;
+  height:100vh;
+  background:#fff;
+  box-shadow:-5px 0 20px rgba(0,0,0,.1);
+  transition:right 0.3s ease;
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+}
+.cart-sidebar.active{right:0}
+.cart-header{
+  padding:1.5rem;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.cart-header h3{margin:0;color:var(--brand)}
+.close-cart{
+  background:none;
+  border:none;
+  font-size:24px;
+  cursor:pointer;
+  color:var(--text);
+}
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:1.5rem;
+}
+.cart-item{
+  display:flex;
+  gap:1rem;
+  margin-bottom:1.5rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.cart-item-image{
+  width:80px;
+  height:100px;
+  background:linear-gradient(135deg,#ffe8ed,#fff9fa);
+  border-radius:8px;
+  flex-shrink:0;
+}
+.cart-item-info{flex:1}
+.cart-item-title{
+  font-weight:600;
+  margin:0 0 0.25rem;
+  font-size:0.95rem;
+}
+.cart-item-price{
+  color:var(--brand);
+  font-weight:700;
+  margin:0.5rem 0;
+}
+.remove-item{
+  background:none;
+  border:none;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:0.85rem;
+}
+.remove-item:hover{color:var(--brand)}
+
+.cart-footer{
+  padding:1.5rem;
+  border-top:1px solid var(--border);
+  background:#f9fafb;
+}
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:1rem;
+  font-size:1.25rem;
+  font-weight:700;
+}
+.cart-total-label{color:var(--text)}
+.cart-total-amount{color:var(--brand)}
+
+.empty-cart{
+  text-align:center;
+  padding:3rem 1rem;
+  color:var(--muted);
+}
+.empty-cart-icon{
+  font-size:4rem;
+  margin-bottom:1rem;
+  opacity:0.5;
+}
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:999;
+  display:none;
+}
+.cart-overlay.active{display:block}
+
+@media (max-width:768px){
+  .cart-sidebar{width:100%;right:-100%}
+  .products-grid{grid-template-columns:1fr}
+}
+
+.filter-section{
+  background:#f9fafb;
+  padding:1.5rem;
+  border-radius:12px;
+  margin-bottom:2rem;
+}
+.filter-section h3{margin:0 0 1rem;font-size:1rem}
+.filter-options{
+  display:flex;
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+.filter-btn{
+  padding:0.5rem 1rem;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:0.9rem;
+  transition:all 0.2s;
+}
+.filter-btn:hover,
+.filter-btn.active{
+  background:var(--brand);
+  color:#fff;
+  border-color:var(--brand);
+}
+</style>
+</head>
+<body>
 <header class="site-header" role="banner">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Empowering Your Mindset home"><span class="brand-text">Empowering Your Mindset</span></a>
+    <a class="brand" href="index.html" aria-label="Empowering Your Mindset home">
+      <span class="brand-text">Empowering Your Mindset</span>
+    </a>
     <nav class="site-nav" role="navigation" aria-label="Primary">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
       <ul id="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -52,214 +374,241 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.con
         <li><a href="books.html" style="font-weight:700;">Books</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a class="btn btn-primary" href="contact.html#booking">Book Speaking</a></li>
+        <li>
+          <div class="cart-icon" id="cart-toggle">
+            🛒
+            <span class="cart-count" id="cart-count">0</span>
+          </div>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
-<main id="main">
-<section class="page-hero reveal"><div class="container narrow"><h1>Books</h1><p class="lead">Practical frameworks you can use this week.</p></div></section>
-<section class="section reveal"><div class="container cards-3">
-<article class="card media-card" id="lever1">
-  <div class="book-cover"></div>
-  <div class="media-card-body">
-    <h3>Your Mind Isnt Evil Its Just not Trained</h3>
-    <p> Cut through complexity to create aligned action.</p>
-    <div class="row">
-      <a class="btn btn-primary" href="#">Buy on Amazon</a>
-      <button class="btn btn-outline" data-preview="lever1">Preview</button>
-    </div>
-  </div>
-</article>
-<article class="card media-card" id="lever2">
-  <div class="book-cover"></div>
-  <div class="media-card-body">
-    <h3>Broken But Not In Pieces</h3>
-    <p>Transform setbacks into strategic advantages.</p>
-    <div class="row">
-      <a class="btn btn-primary" href="#">Buy on Amazon</a>
-      <button class="btn btn-outline" data-preview="lever2">Preview</button>
-    </div>
-  </div>
-</article>
-<article class="card media-card" id="lever3">
-  <div class="book-cover"></div>
-  <div class="media-card-body">
-    <h3>Hijack! The Physcology Of Hijacking Your Mind</h3>
-    <p>Build psychological safety and unlock team potential</p>
-    <div class="row">
-      <a class="btn btn-primary" href="#">Buy on Amazon</a>
-      <button class="btn btn-outline" data-preview="lever3">Preview</button>
-    </div>
-  </div>
-</article>
-</div></section>
 
-<!-- Fixed modal with proper show/hide functionality -->
-<div class="book-modal" id="preview-modal">
-  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title">
-    <div class="modal-head">
-      <h3 id="preview-title">Book Preview</h3>
-      <button class="close" aria-label="Close">✕</button>
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Books by Dr. Andrew Brown</h1>
+      <p class="lead">Transform your mindset with practical, actionable insights</p>
     </div>
-    <div class="modal-body" id="modal-content">
-      <p>Loading preview...</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filter-section">
+        <h3>Browse by Format</h3>
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="all">All Books</button>
+          <button class="filter-btn" data-filter="hardcover">Hardcover</button>
+          <button class="filter-btn" data-filter="paperback">Paperback</button>
+          <button class="filter-btn" data-filter="ebook">E-Book</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-category="hardcover paperback ebook">
+          <div class="product-image">
+            <span class="badge">Bestseller</span>
+            <img src="https://static.wixstatic.com/media/a2df09_d23b580b44034ff096a71e2e45ffd044~mv2.png/v1/fill/w_368,h_487,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Your%20Mind%20Isnt%20Evil%20Its%20Just%20not%20Tra.png" alt="Your Mind Isn't Evil">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Your Mind Isn't Evil, It's Just Not Trained</h3>
+            <p class="product-description">Learn to transform your mind positively and create the world you desire. A practical guide to mindset transformation.</p>
+            <div class="product-price">
+              $24.99
+              <span class="original">$29.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Your Mind Isn\'t Evil', 24.99)">Add to Cart</button>
+              <a href="https://www.amazon.com/YOUR-MIND-ISNT-EVIL-TRAINED/dp/B0CBNBVKJC" class="btn btn-secondary" target="_blank">Buy on Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="paperback ebook">
+          <div class="product-image">
+            <img src="https://static.wixstatic.com/media/a2df09_d3aed9b374954fd3b7754e7d6f0c93e1~mv2.png/v1/fill/w_368,h_487,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Broken%20But%20Not%20In%20Pieces.png" alt="Broken But Not In Pieces">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Broken But Not In Pieces</h3>
+            <p class="product-description">Transform your setbacks into comebacks. A powerful journey of resilience, healing, and personal growth.</p>
+            <div class="product-price">$19.99</div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Broken But Not In Pieces', 19.99)">Add to Cart</button>
+              <a href="https://www.amazon.com/Broken-Not-Pieces-Andrew-Brown/dp/1958729132" class="btn btn-secondary" target="_blank">Buy on Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-category="hardcover paperback">
+          <div class="product-image">
+            <span class="badge">New Release</span>
+            <img src="https://static.wixstatic.com/media/a2df09_a7a5e3e1a4a44e8a9e3c3f4d6e7f8a9b~mv2.png/v1/fill/w_368,h_487,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Hijack.png" alt="Hijack! The Psychology">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Hijack! The Psychology of Hijacking Your Mind</h3>
+            <p class="product-description">Take control of your thoughts and break free from mental limitations. Master the art of mindset hijacking.</p>
+            <div class="product-price">$27.99</div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Hijack! The Psychology', 27.99)">Add to Cart</button>
+              <a href="https://www.amazon.com/s?k=hijack+andrew+brown" class="btn btn-secondary" target="_blank">Buy on Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 - Bundle -->
+        <div class="product-card" data-category="ebook">
+          <div class="product-image">
+            <span class="badge">Bundle Deal</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Complete Mindset Collection</h3>
+            <p class="product-description">Get all three books in digital format. Save 30% with this exclusive bundle offer!</p>
+            <div class="product-price">
+              $49.99
+              <span class="original">$72.97</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-primary" onclick="addToCart('Complete Collection Bundle', 49.99)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+</main>
+
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>Shopping Cart</h3>
+    <button class="close-cart" id="close-cart">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="empty-cart">
+      <div class="empty-cart-icon">🛒</div>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total:</span>
+      <span class="cart-total-amount" id="cart-total">$0.00</span>
+    </div>
+    <button class="btn btn-primary" style="width:100%" onclick="checkout()">Proceed to Checkout</button>
   </div>
 </div>
-</main>
+
 <footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <div><div class="brand-footer"><strong>Empowering Your Mindset</strong></div><p>Tools, talks, and coaching to lead with clarity and trust.</p></div>
-    <div><h4>Quick Links</h4><ul class="list-plain"><li><a href="services.html">Services</a></li><li><a href="books.html">Books</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h4>Subscribe</h4><form class="subscribe" data-enhance="true"><label class="sr-only" for="sub-email">Email</label><input id="sub-email" type="email" placeholder="you@company.com" required><button class="btn">Join</button></form><p class="small muted">No spam. Unsubscribe anytime.</p></div>
+  <div class="container">
+    <p style="text-align:center;padding:2rem 0;color:var(--muted)">
+      © 2025 Dr. Andrew Brown. All rights reserved.
+    </p>
   </div>
-  <div class="container fineprint"><small>© 2025 Dr. Andrew Brown. All rights reserved.</small></div>
 </footer>
+
 <script>
-(function(){
-  // Mobile menu toggle
-  const toggle = document.querySelector('.nav-toggle');
-  const menu = document.getElementById('nav-menu');
-  if(toggle && menu){
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if(menu.classList.contains('open')){
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    }));
+let cart = [];
+
+function addToCart(title, price){
+  cart.push({title, price});
+  updateCart();
+  openCart();
+}
+
+function removeFromCart(index){
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart(){
+  const cartCount = document.getElementById('cart-count');
+  const cartItems = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+  
+  cartCount.textContent = cart.length;
+  
+  if(cart.length === 0){
+    cartItems.innerHTML = '<div class="empty-cart"><div class="empty-cart-icon">🛒</div><p>Your cart is empty</p></div>';
+    cartTotal.textContent = '$0.00';
+    return;
   }
   
-  // Book preview modal functionality
-  const modal = document.getElementById('preview-modal');
-  const modalTitle = document.getElementById('preview-title');
-  const modalContent = document.getElementById('modal-content');
-  const previewButtons = document.querySelectorAll('[data-preview]');
-  const closeBtn = modal?.querySelector('.close');
+  let total = 0;
+  let html = '';
   
-  // Sample preview content for each book
-  const previews = {
-    lever1: {
-      title: 'The Trust Equation - Preview',
-      content: `
-        <h4>Introduction: Why Trust Matters</h4>
-        <p>In today's rapidly changing business landscape, trust isn't just nice to have—it's the foundation of high-performing teams. Research shows that teams with high trust levels are 2.5x more likely to be high-performing revenue organizations.</p>
-        
-        <h4>Chapter 1: The Four Pillars of Trust</h4>
-        <p>Trust in organizations rests on four essential pillars: Credibility, Reliability, Intimacy, and Self-Orientation. When leaders understand and optimize these four elements, they create environments where innovation thrives and people do their best work.</p>
-        
-        <p><strong>Credibility</strong> goes beyond expertise—it's about demonstrating competence in ways that matter to your team...</p>
-        
-        <p><strong>Reliability</strong> is the consistency between words and actions over time...</p>
-      `
-    },
-    lever2: {
-      title: 'Leading Through Clarity - Preview',
-      content: `
-        <h4>Foreword: The Clarity Crisis</h4>
-        <p>We live in an age of information overload. The average knowledge worker receives 120 emails per day and attends 25 hours of meetings per week. Yet despite all this communication, teams are more confused than ever about priorities and direction.</p>
-        
-        <h4>Chapter 1: The Clarity Framework</h4>
-        <p>Clarity isn't about dumbing things down—it's about making the complex accessible. The Clarity Framework consists of three core elements: Purpose, Process, and Progress.</p>
-        
-        <p><strong>Purpose:</strong> Why we exist and what we're trying to achieve...</p>
-        
-        <p><strong>Process:</strong> How we work together to achieve our goals...</p>
-      `
-    },
-    lever3: {
-      title: 'The Resilient Mindset - Preview',
-      content: `
-        <h4>Introduction: Redefining Resilience</h4>
-        <p>Resilience isn't about bouncing back—it's about bouncing forward. True resilience transforms challenges into catalysts for growth, turning setbacks into strategic advantages.</p>
-        
-        <h4>Chapter 1: The Resilience Paradox</h4>
-        <p>The most resilient leaders aren't those who avoid failure—they're those who have developed a different relationship with it. They see failure not as an endpoint but as data, not as weakness but as growth.</p>
-        
-        <p><strong>The Growth Response:</strong> How to rewire your automatic reactions to setbacks...</p>
-        
-        <p><strong>Strategic Recovery:</strong> Using downtime as opportunity for innovation...</p>
-      `
-    }
-  };
-  
-  function openModal(bookId){
-    if(!modal) return;
-    
-    const preview = previews[bookId] || {
-      title: 'Book Preview',
-      content: '<p>Preview content is not available for this book yet. Check back soon!</p>'
-    };
-    
-    modalTitle.textContent = preview.title;
-    modalContent.innerHTML = preview.content;
-    modal.classList.add('active');
-    
-    // Focus the close button for accessibility
-    setTimeout(() => {
-      closeBtn?.focus();
-    }, 100);
-  }
-  
-  function closeModal(){
-    if(!modal) return;
-    modal.classList.remove('active');
-  }
-  
-  // Attach event listeners
-  previewButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const bookId = btn.getAttribute('data-preview');
-      openModal(bookId);
-    });
+  cart.forEach((item, index) => {
+    total += item.price;
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-image"></div>
+        <div class="cart-item-info">
+          <div class="cart-item-title">${item.title}</div>
+          <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+          <button class="remove-item" onclick="removeFromCart(${index})">Remove</button>
+        </div>
+      </div>
+    `;
   });
   
-  if(closeBtn){
-    closeBtn.addEventListener('click', closeModal);
-  }
-  
-  // Close on backdrop click
-  if(modal){
-    modal.addEventListener('click', (e) => {
-      if(e.target === modal){
-        closeModal();
-      }
-    });
+  cartItems.innerHTML = html;
+  cartTotal.textContent = '$' + total.toFixed(2);
+}
+
+function openCart(){
+  document.getElementById('cart-sidebar').classList.add('active');
+  document.getElementById('cart-overlay').classList.add('active');
+}
+
+function closeCart(){
+  document.getElementById('cart-sidebar').classList.remove('active');
+  document.getElementById('cart-overlay').classList.remove('active');
+}
+
+function checkout(){
+  alert('Checkout functionality would redirect to payment processor. Cart total: $' + cart.reduce((sum, item) => sum + item.price, 0).toFixed(2));
+}
+
+document.getElementById('cart-toggle').addEventListener('click', openCart);
+document.getElementById('close-cart').addEventListener('click', closeCart);
+document.getElementById('cart-overlay').addEventListener('click', closeCart);
+
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const products = document.querySelectorAll('.product-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
     
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && modal.classList.contains('active')){
-        closeModal();
+    const filter = btn.getAttribute('data-filter');
+    
+    products.forEach(product => {
+      if(filter === 'all' || product.getAttribute('data-category').includes(filter)){
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
       }
     });
-  }
-  
-  // Reveal animations
-  const reveals = document.querySelectorAll('.reveal');
-  const revealIO = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        revealIO.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.2});
-  
-  reveals.forEach(el => revealIO.observe(el));
-  
-  // Parallax effect
-  function parallax(){
-    const scrollY = window.scrollY || window.pageYOffset;
-    const px = Math.min(30, scrollY * 0.08);
-    document.documentElement.style.setProperty('--parallax', px + 'px');
-  }
-  
-  window.addEventListener('scroll', parallax, {passive: true});
-  parallax();
-})();
+  });
+});
+
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const menu = document.getElementById('nav-menu');
+if(toggle && menu){
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
 </script>
-</body></html>
+</body>
+</html>
